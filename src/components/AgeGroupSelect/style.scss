@@ -1,0 +1,45 @@
+.ageGroupSelect__wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 4px;
+    width: 100%;
+
+    .ageGroupSelect__container {
+        display: flex;
+        margin-bottom: 4px;
+    }
+
+    .label__top {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 20px;
+        word-break: break-word;
+        color: rgba(153, 153, 153, 255);
+        font-weight: 700;
+    }
+
+    &.errorInput {
+        // label {
+        //     color: rgb(244, 81, 30);
+        // }
+
+        // input {
+        //     border: 1px solid rgb(244, 81, 30);
+        // }
+
+        .error__message {
+            background-color: rgba(247, 235, 232, 255);
+            color: rgb(244, 81, 30);
+            display: block;
+            font-weight: bold;
+            font-size: 12px;
+            line-height: 16px;
+            padding: 6px;
+            border-radius: 4px;
+            margin-bottom: 4px;
+            margin-top: -4px;
+        }
+    }
+}

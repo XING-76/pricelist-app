@@ -1,0 +1,16 @@
+.mark__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    background-color: rgba(245, 245, 245, 255);
+    color: rgba(105, 105, 105, 255);
+    border: 1px solid rgb(191, 191, 191);
+    font-size: 0.5rem;
+    font-weight: 600;
+    min-width: 20px;
+}
+
+.radius-left {
+    border-radius: 4px 0 0 4px;
+}

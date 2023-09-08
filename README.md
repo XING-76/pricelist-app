@@ -1,1 +1,1 @@
-# <a href=# target=_blank>pricelist-app</a>
+# <a href=https://pricelist-app.vercel.app/ target=_blank>pricelist-app</a>

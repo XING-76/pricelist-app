@@ -1,6 +1,5 @@
 import AgeGroupPriceItem from '../../components/AgeGroupPriceItem';
-// import { AgeGroupPriceListField as initAgeGroupPriceListField } from './model/data';
-import { FETCH_ACTION, SET_LIST_FIELD } from './model';
+import { FETCH_ACTION, FETCH_VALIDATE, SET_LIST_FIELD } from './model';
 import { nanoid } from 'nanoid';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
@@ -24,43 +23,28 @@ const AgeGroupPriceList = () => {
     const handleAdd = () => {
         if (overlapError || blankError || includeAll) return;
 
-        // const newItem = {
-        //     itemId: nanoid(),
-        //     ageGroup: [0, 20],
-        //     price: 0,
-        //     startAge: 0,
-        //     endAge: 20,
-        // };
-
         const newData = {
-            // data: [...ageGroupPriceListField, newItem],
             data: [...ageGroupPriceListField],
             type: 'add',
         };
 
-        // 業務邏輯
         dispatch(FETCH_ACTION(newData));
-
-        // 這邊應該要用 useEffect 偵測 saga 丟回的資訊去重組新的資料並塞入新增
-        // setResult((formData) => {
-        //     return [...formData, newItem];
-        // });
     };
 
     const handleDelete = (itemId) => {
-        // 業務邏輯
         const newData = ageGroupPriceListField.filter(
             (item) => item.itemId !== itemId
         );
 
+        // 功能待修正
+        // dispatch(FETCH_VALIDATE(newData));
+        // 此行為版本一暫行
         dispatch(SET_LIST_FIELD(newData));
+
         setResult(newData);
     };
 
-    // 可能合併在 add、delete 中丟全域錯誤來做顯示
     useEffect(() => {
-        // 檢查目前輸入
-        // dispatch(FETCH_ACTION(ageGroupPriceListField))
         const { data, type } = apiResponse;
 
         if (type === 'add') {

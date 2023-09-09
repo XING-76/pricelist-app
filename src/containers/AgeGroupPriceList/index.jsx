@@ -77,7 +77,6 @@ const AgeGroupPriceList = () => {
                 <AgeGroupPriceItem
                     key={item.itemId}
                     itemIndex={index}
-                    itemId={item.itemId}
                     item={item}
                     handleDelete={handleDelete}
                 />

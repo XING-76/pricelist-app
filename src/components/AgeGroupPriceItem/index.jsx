@@ -12,7 +12,7 @@ import { useEffect, useState } from 'react';
 import './style.scss';
 
 const AgeGroupPriceItem = (props) => {
-    const { item, itemIndex, itemId, handleDelete } = props;
+    const { item, itemIndex, handleDelete } = props;
 
     const dispatch = useDispatch();
 
@@ -97,7 +97,7 @@ const AgeGroupPriceItem = (props) => {
                 ) : (
                     <div
                         className="deleteBtn"
-                        onClick={() => handleDelete(itemId)}
+                        onClick={() => handleDelete(ageGroupPriceItem.itemId)}
                     >
                         × 移除
                     </div>

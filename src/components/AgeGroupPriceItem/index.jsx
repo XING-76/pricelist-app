@@ -99,7 +99,7 @@ const AgeGroupPriceItem = (props) => {
             </div>
 
             <Grid row>
-                <Grid col xs="12" sm="6" md="6" lg="6" xl="6" xxl="6">
+                <Grid col xs="12" sm="12" md="6" lg="6" xl="6" xxl="6">
                     <AgeGroupSelect
                         label="年齡"
                         name="ageGroup"
@@ -111,7 +111,7 @@ const AgeGroupPriceItem = (props) => {
                     />
                 </Grid>
 
-                <Grid col xs="12" sm="6" md="6" lg="6" xl="6" xxl="6">
+                <Grid col xs="12" sm="12" md="6" lg="6" xl="6" xxl="6">
                     <PriceInput
                         label="入住費用（每人每晚）"
                         type="text"

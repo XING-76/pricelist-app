@@ -16,6 +16,7 @@ export const slice = createSlice({
         SET_OVERLAP_ERROR: sendPayloadObject('overlapError'),
         SET_BLANK_ERROR: sendPayloadObject('blankError'),
         SET_INCLUDE_ALL: sendPayloadObject('includeAll'),
+        SET_VALID_OPTIONS: sendPayloadObject('validOptions'),
         SET_API_RESPONSE: sendPayloadObject('apiResponse'),
     },
 });
@@ -27,6 +28,7 @@ export const {
     SET_LIST_FIELD,
     SET_OVERLAP_ERROR,
     SET_INCLUDE_ALL,
+    SET_VALID_OPTIONS,
     SET_API_RESPONSE,
 } = slice.actions;
 

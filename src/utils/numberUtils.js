@@ -142,6 +142,14 @@ class NumberUtils {
         const endAgesArray = adjustedAges.map((range) => [range[0], 20]);
 
         return [startAgesArray[0], endAgesArray[0]];
+
+        // 獲取第一個子數組的起始年齡
+        // const firstStartAge = adjustedAges[0][0];
+
+        // // 構建包含兩個子數組的結果數組
+        // const resultArray = [adjustedAges[0], [firstStartAge, 20]];
+
+        // return resultArray;
     };
 }
 

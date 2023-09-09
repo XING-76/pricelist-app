@@ -8,6 +8,7 @@ import NumberUtils from '../../../utils/numberUtils';
 export const getValideResult = (data) => {
     const { overlap, notInclude } = NumberUtils.getNumberIntervals(data);
 
+
     return {
         overlap,
         overlapError:

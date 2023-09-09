@@ -7,6 +7,7 @@ import {
     SET_LIST_FIELD,
     SET_OVERLAP_ERROR,
     SET_INCLUDE_ALL,
+    SET_VALID_OPTIONS,
     SET_API_RESPONSE,
 } from './index';
 
@@ -31,13 +32,18 @@ function* fetchAction(action) {
 
         const convertedData = getValideInput(data);
 
-        const { overlap, overlapError, notInclude, includeAll } =
+        const { overlapError, notInclude, includeAll } =
             getValideResult(convertedData);
 
         yield put(SET_OVERLAP_ERROR(overlapError));
         yield put(SET_INCLUDE_ALL(includeAll));
 
-        yield put(SET_API_RESPONSE({ data: notInclude, type }));
+        yield put(SET_VALID_OPTIONS(notInclude));
+
+        if (type === 'add')
+            yield put(SET_API_RESPONSE({ data: notInclude, type }));
+        if (type === 'delete')
+            yield put(SET_API_RESPONSE({ data: data, type }));
     } catch (error) {
         console.error(error);
     }

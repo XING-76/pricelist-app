@@ -13,6 +13,7 @@ const AgeGroupPriceList = () => {
         overlapError,
         blankError,
         includeAll,
+        validOptions,
         apiResponse,
     } = useSelector((state) => ({
         ...state.mainPage,
@@ -32,16 +33,16 @@ const AgeGroupPriceList = () => {
     };
 
     const handleDelete = (itemId) => {
-        const newData = ageGroupPriceListField.filter(
+        const newList = ageGroupPriceListField.filter(
             (item) => item.itemId !== itemId
         );
 
-        // 功能待修正
-        // dispatch(FETCH_VALIDATE(newData));
-        // 此行為版本一暫行
-        dispatch(SET_LIST_FIELD(newData));
+        const newData = {
+            data: newList,
+            type: 'delete',
+        };
 
-        setResult(newData);
+        dispatch(FETCH_ACTION(newData));
     };
 
     useEffect(() => {
@@ -50,10 +51,10 @@ const AgeGroupPriceList = () => {
         if (type === 'add') {
             const newItem = {
                 itemId: nanoid(),
-                ageGroup: [data[0][0], data[1][1]],
+                ageGroup: [validOptions[0], validOptions[1]],
                 price: 0,
-                startAge: data[0],
-                endAge: data[1],
+                startAge: validOptions[0],
+                endAge: validOptions[1],
             };
 
             dispatch(SET_LIST_FIELD([...ageGroupPriceListField, newItem]));
@@ -61,6 +62,12 @@ const AgeGroupPriceList = () => {
             setResult((formData) => {
                 return [...formData, newItem];
             });
+        }
+
+        if (type === 'delete') {
+            dispatch(SET_LIST_FIELD(data));
+
+            setResult(data);
         }
     }, [apiResponse]);
 

@@ -16,97 +16,6 @@ const AgeGroupSelect = (props) => {
         onChange,
     } = props;
 
-    // const [optionsStart, setOptionsStart] = useState([]);
-    // const [optionsEnd, setOptionsEnd] = useState([]);
-    // const [selectedStart, setSelectedStart] = useState(startAge[0]);
-    // const [selectedEnd, setSelectedEnd] = useState(endAge[0]);
-
-    // useEffect(() => {
-    //     // 生成起始年龄下拉框的选项
-    //     const generateOptionsStart = () => {
-    //         const options = [];
-    //         for (let i = 0; i <= 20; i++) {
-    //             options.push(i);
-    //         }
-    //         setOptionsStart(options);
-    //     };
-
-    //     // 生成结束年龄下拉框的选项
-    //     const generateOptionsEnd = () => {
-    //         const options = [];
-    //         for (let i = 0; i <= 20; i++) {
-    //             options.push(i);
-    //         }
-    //         setOptionsEnd(options);
-    //     };
-
-    //     generateOptionsStart();
-    //     generateOptionsEnd();
-    // }, []);
-
-    // useEffect(() => {
-    //     // 根据用户选择更新结束年龄的选项
-    //     const updatedOptionsEnd = optionsEnd.filter(
-    //         (option) => option >= selectedStart
-    //     );
-    //     setOptionsEnd(updatedOptionsEnd);
-    // }, [selectedStart]);
-
-    // useEffect(() => {
-    //     // 根据用户选择更新起始年龄的选项
-    //     const updatedOptionsStart = optionsStart.filter(
-    //         (option) => option <= selectedEnd
-    //     );
-    //     setOptionsStart(updatedOptionsStart);
-    // }, [selectedEnd]);
-
-    // useEffect(() => {
-    //     const updatedOptionsStart = optionsStart.filter(
-    //         (option) => option <= selectedEnd
-    //     );
-    //     const updatedOptionsEnd = optionsEnd.filter(
-    //         (option) => option >= selectedStart
-    //     );
-    //     setOptionsStart(updatedOptionsStart);
-    //     setOptionsEnd(updatedOptionsEnd);
-    // }, [selectedStart, selectedEnd]);
-
-    // Y
-    //   const handleStartAgeChange = (event) => {
-    //     const newStartAge = parseInt(event.target.value, 10);
-    //     setSelectedStart(newStartAge);
-    //   };
-
-    //   const handleEndAgeChange = (event) => {
-    //     const newEndAge = parseInt(event.target.value, 10);
-    //     setSelectedEnd(newEndAge);
-    //   };
-
-    //     useEffect(() => {
-    //         // 生成起始年齡下拉框的選項
-    //         const generateOptionsStart = () => {
-    //             const options = [];
-    //             // for (let i = 0; i <= selectEndAge; i++) {
-    //                 options.push(i);
-    //             }
-    //             setOptionsStart(options);
-    //         };
-
-    //         // 生成結束年齡下拉框的選項
-    //         const generateOptionsEnd = () => {
-    //             const options = [];
-    //             // for (let i = selectStartAge; i <= 20; i++) {
-    //                 options.push(i);
-    //             }
-    //             setOptionsEnd(options);
-    //         };
-
-    //         generateOptionsStart();
-    //         generateOptionsEnd();
-    //     // }, [selectStartAge, selectEndAge]);
-    // }, [selectStartAge, selectEndAge]);
-    // Y
-
     const [localStartAge, setLocalStartAge] = useState(startAge[0]);
     const [localEndAge, setLocalEndAge] = useState(endAge[1]);
     const [optionsStart, setOptionsStart] = useState([]);
@@ -117,6 +26,7 @@ const AgeGroupSelect = (props) => {
         const generateOptionsStart = () => {
             const options = [];
             for (let i = 0; i <= localEndAge; i++) {
+                // for (let i = localStartAge; i <= localEndAge; i++) {
                 options.push(i);
             }
             setOptionsStart(options);
@@ -126,6 +36,7 @@ const AgeGroupSelect = (props) => {
         const generateOptionsEnd = () => {
             const options = [];
             for (let i = localStartAge; i <= 20; i++) {
+                // for (let i = endAge[0]; i <= 20; i++) {
                 options.push(i);
             }
             setOptionsEnd(options);

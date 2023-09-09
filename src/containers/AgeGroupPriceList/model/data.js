@@ -12,10 +12,7 @@ export const AgeGroupPriceListField = [{ ...AgeGroupPriceItem }];
 
 export const ApiResponse = {
     type: '',
-    // code: 0,
-    // dataId: '',
-    data: {},
-    // mode: 'view'
+    data: [],
 };
 
 export const initialState = {
@@ -23,5 +20,6 @@ export const initialState = {
     overlapError: false,
     blankError: false,
     includeAll: false,
+    validOptions: [],
     apiResponse: ApiResponse,
 };

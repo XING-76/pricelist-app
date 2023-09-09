@@ -10,15 +10,12 @@ const PriceInput = (props) => {
         label = '',
         placeholder = '',
         onChange,
-        // defaultValue,
         value,
         message = '',
         error = '',
     } = props;
 
     const handleOnChange = (event) => {
-        // if (readonly || disabled) return;
-
         if (onChange) onChange(event);
     };
 

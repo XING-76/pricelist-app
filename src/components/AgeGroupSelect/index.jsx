@@ -1,7 +1,6 @@
 import Mark from '../Mark';
 import SelectDropDown from '../SelectDropDown';
 import { useState, useEffect } from 'react';
-// import ObjectUtils from '../../utils/objectUtils';
 
 import './style.scss';
 

@@ -2,7 +2,11 @@ import PriceInput from '../PriceInput';
 import AgeGroupSelect from '../AgeGroupSelect';
 import Grid from '../Grid';
 import NumberUtils from '../../utils/numberUtils';
-import { FETCH_ITEM_FIELD } from '../../containers/AgeGroupPriceList/model';
+import ObjectUtils from '../../utils/objectUtils';
+import {
+    FETCH_ITEM_FIELD,
+    SET_BLANK_ERROR,
+} from '../../containers/AgeGroupPriceList/model';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import './style.scss';
@@ -27,6 +31,8 @@ const AgeGroupPriceItem = (props) => {
         let priceValue = inputValue;
 
         if (inputName === 'price') {
+            dispatch(SET_BLANK_ERROR(!ObjectUtils.isValidValue(inputValue)));
+
             priceValue = priceValue.replace(/^(-)?0+(?!\.|$)/, '$1');
 
             // 移除非數字、小數點和負號的字符

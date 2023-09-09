@@ -9,7 +9,6 @@ export const slice = createSlice({
     name: 'mainPage',
     initialState,
     reducers: {
-        FETCH_VALIDATE: sendPayloadObject(ReduxResponseColumns.PAYLOAD),
         FETCH_ACTION: sendPayloadObject(ReduxResponseColumns.PAYLOAD),
         FETCH_ITEM_FIELD: sendPayloadObject(ReduxResponseColumns.PAYLOAD),
         SET_LIST_FIELD: sendPayloadObject('ageGroupPriceListField'),
@@ -22,11 +21,11 @@ export const slice = createSlice({
 });
 
 export const {
-    FETCH_VALIDATE,
     FETCH_ACTION,
     FETCH_ITEM_FIELD,
     SET_LIST_FIELD,
     SET_OVERLAP_ERROR,
+    SET_BLANK_ERROR,
     SET_INCLUDE_ALL,
     SET_VALID_OPTIONS,
     SET_API_RESPONSE,

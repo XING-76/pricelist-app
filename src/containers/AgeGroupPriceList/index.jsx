@@ -1,5 +1,5 @@
 import AgeGroupPriceItem from '../../components/AgeGroupPriceItem';
-import { FETCH_ACTION, FETCH_VALIDATE, SET_LIST_FIELD } from './model';
+import { FETCH_ACTION, SET_LIST_FIELD } from './model';
 import { nanoid } from 'nanoid';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';

@@ -2,7 +2,7 @@ import AgeGroupPriceItem from '../../components/AgeGroupPriceItem';
 import { FETCH_ACTION, SET_LIST_FIELD } from './model';
 import { nanoid } from 'nanoid';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import './style.scss';
 
 const AgeGroupPriceList = () => {
@@ -18,8 +18,6 @@ const AgeGroupPriceList = () => {
     } = useSelector((state) => ({
         ...state.mainPage,
     }));
-
-    const [result, setResult] = useState(ageGroupPriceListField);
 
     const handleAdd = () => {
         if (overlapError || blankError || includeAll) return;
@@ -58,22 +56,16 @@ const AgeGroupPriceList = () => {
             };
 
             dispatch(SET_LIST_FIELD([...ageGroupPriceListField, newItem]));
-
-            setResult((formData) => {
-                return [...formData, newItem];
-            });
         }
 
         if (type === 'delete') {
             dispatch(SET_LIST_FIELD(data));
-
-            setResult(data);
         }
     }, [apiResponse]);
 
     return (
         <>
-            {result.map((item, index) => (
+            {ageGroupPriceListField.map((item, index) => (
                 <AgeGroupPriceItem
                     key={item.itemId}
                     itemIndex={index}

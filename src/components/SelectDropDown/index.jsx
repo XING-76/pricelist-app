@@ -5,13 +5,11 @@ import './style.scss';
 const SelectDropDown = (props) => {
     const {
         name,
-        // label = '',
         placeholder = '請選擇',
         onChange,
         radius = '',
         value,
         options,
-        // message = '',
     } = props;
 
     const handleOnChange = (event) => {

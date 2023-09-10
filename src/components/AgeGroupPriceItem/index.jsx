@@ -78,10 +78,10 @@ const AgeGroupPriceItem = (props) => {
     };
 
     useEffect(() => {
-        const newData = [...ageGroupPriceListField].map((item) => {
-            return item.itemId === ageGroupPriceItem.itemId
+        const newData = [...ageGroupPriceListField].map((priceItem) => {
+            return priceItem.itemId === ageGroupPriceItem.itemId
                 ? { ...ageGroupPriceItem }
-                : { ...item };
+                : { ...priceItem };
         });
 
         dispatch(FETCH_ITEM_FIELD(newData));

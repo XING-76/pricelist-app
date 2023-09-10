@@ -11,14 +11,12 @@
 .grid__col {
     display: flex;
     align-items: center;
-    // margin: map-get($grid, 'row-padding') 8px;
     width: 100%;
 }
 
 @mixin col-generate($size) {
     @for $i from 1 through 12 {
         .grid__col#{$size}_#{$i} {
-            // flex-grow: 0;
             flex-basis: calc(-16px + 100% *#{$i}* 1 / 12);
 
             flex-grow: 1;

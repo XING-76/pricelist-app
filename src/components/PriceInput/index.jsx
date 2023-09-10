@@ -1,6 +1,5 @@
 import Mark from '../Mark';
 import ObjectUtils from '../../utils/objectUtils';
-
 import './style.scss';
 
 const PriceInput = (props) => {

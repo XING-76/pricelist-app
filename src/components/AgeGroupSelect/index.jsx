@@ -1,7 +1,6 @@
 import Mark from '../Mark';
 import SelectDropDown from '../SelectDropDown';
 import { useState, useEffect } from 'react';
-
 import './style.scss';
 
 const AgeGroupSelect = (props) => {
@@ -15,8 +14,8 @@ const AgeGroupSelect = (props) => {
         onChange,
     } = props;
 
-    const [localStartAge, setLocalStartAge] = useState(startAge[0]);
-    const [localEndAge, setLocalEndAge] = useState(endAge[1]);
+    const [localStartAge] = useState(startAge[0]);
+    const [localEndAge] = useState(endAge[1]);
     const [optionsStart, setOptionsStart] = useState([]);
     const [optionsEnd, setOptionsEnd] = useState([]);
 
@@ -24,8 +23,8 @@ const AgeGroupSelect = (props) => {
         // 生成起始年齡下拉框的選項
         const generateOptionsStart = () => {
             const options = [];
-            for (let i = 0; i <= localEndAge; i++) {
-                // for (let i = localStartAge; i <= localEndAge; i++) {
+
+            for (let i = startAge[0]; i <= startAge[1]; i++) {
                 options.push(i);
             }
             setOptionsStart(options);
@@ -34,8 +33,8 @@ const AgeGroupSelect = (props) => {
         // 生成結束年齡下拉框的選項
         const generateOptionsEnd = () => {
             const options = [];
-            for (let i = localStartAge; i <= 20; i++) {
-                // for (let i = endAge[0]; i <= 20; i++) {
+
+            for (let i = endAge[0]; i <= endAge[1]; i++) {
                 options.push(i);
             }
             setOptionsEnd(options);

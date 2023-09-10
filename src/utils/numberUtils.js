@@ -122,34 +122,43 @@ class NumberUtils {
 
     /**
      * 計算可新增的有效區間
-     * @param data
+     * @param inputRanges
      * @returns
      */
-    static getValidateIntervals = (arr) => {
-        const adjustedAges = [];
+    static getValidateIntervals = (inputRanges) => {
+        // 將輸入的範圍按照起始值排序
+        inputRanges.sort((a, b) => a[0] - b[0]);
 
-        for (const range of arr) {
-            const startAge = range[0];
-            const endAge = range[1];
+        // 初始化輸出的範圍
+        const outputRanges = [];
 
-            const adjustedStartAge = Math.max(0, Math.min(startAge, 20));
-            const adjustedEndAge = Math.max(0, Math.min(endAge, 20));
+        for (let i = 0; i < inputRanges.length; i++) {
+            const currentRange = inputRanges[i];
 
-            adjustedAges.push([adjustedStartAge, adjustedEndAge]);
+            // 如果輸出範圍為空或者無法合併，則直接添加到輸出中
+            if (
+                outputRanges.length === 0 ||
+                currentRange[0] > outputRanges[outputRanges.length - 1][1] + 1
+            ) {
+                outputRanges.push(currentRange);
+            } else {
+                // 否則，合併範圍
+                outputRanges[outputRanges.length - 1][1] = Math.max(
+                    outputRanges[outputRanges.length - 1][1],
+                    currentRange[1]
+                );
+            }
         }
 
-        const startAgesArray = adjustedAges.map((range) => [0, range[1]]);
-        const endAgesArray = adjustedAges.map((range) => [range[0], 20]);
+        // 如果只有一個範圍，複製一次
+        if (outputRanges.length === 1) {
+            outputRanges.push([...outputRanges[0]]);
+        }
 
-        return [startAgesArray[0], endAgesArray[0]];
+        // 轉換輸出格式
+        const output = outputRanges.map((range) => [range[0], range[1]]);
 
-        // 獲取第一個子數組的起始年齡
-        // const firstStartAge = adjustedAges[0][0];
-
-        // // 構建包含兩個子數組的結果數組
-        // const resultArray = [adjustedAges[0], [firstStartAge, 20]];
-
-        // return resultArray;
+        return output;
     };
 }
 

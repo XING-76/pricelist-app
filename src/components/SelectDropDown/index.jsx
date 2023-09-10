@@ -1,5 +1,4 @@
 import ObjectUtils from '../../utils/objectUtils';
-
 import './style.scss';
 
 const SelectDropDown = (props) => {
